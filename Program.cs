@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 // Change 0.0.0.0 to localhost for local host
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+builder.WebHost.UseUrls($"http://localhost:{port}");
 
 builder.Services.AddDbContext<MyPageContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyPageContext") ?? throw new InvalidOperationException("Connection string 'MyPageContext' not found.")));
