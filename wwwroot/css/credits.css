@@ -28,7 +28,7 @@
 @media (max-width: 767.98px) {
     .credits-div {
         width: calc(100% - 1.25rem);
-        margin-top: 70px;
+        margin-top: 10px;
         font-size: 1rem;
     }
 

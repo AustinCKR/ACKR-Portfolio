@@ -1,18 +1,40 @@
 ﻿@{
     ViewData["Title"] = ViewData["Title"] ?? "Playground"; // Default to "Playground" if not set
-    string iframeSrc = ViewData["IframeSrc"]?.ToString();
+    string? iframeSrc = ViewData["IframeSrc"]?.ToString();
 }
 
 <div class="playground-div">
     @if (!string.IsNullOrEmpty(iframeSrc))
     {
-        <iframe src="@iframeSrc"
-                frameborder="0"
-                allowfullscreen>
-        </iframe>
+        <div class="playground-frame-wrapper" id="playgroundFrameWrapper">
+            <div class="playground-loading" id="playgroundLoading" role="status" aria-live="polite">
+                <i class="fa-solid fa-spinner"></i>
+                <p>Loading...</p>
+            </div>
+
+            <iframe class="playground-iframe" id="playgroundIframe"
+                    src="@iframeSrc"
+                    frameborder="0"
+                    allowfullscreen>
+            </iframe>
+        </div>
     }
     else
     {
         <p>No content to display. Please provide a valid source.</p>
     }
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const wrapper = document.getElementById('playgroundFrameWrapper');
+            const iframe = document.getElementById('playgroundIframe');
+            if (!wrapper || !iframe) return;
+
+            iframe.addEventListener('load', function () {
+                wrapper.classList.add('is-loaded');
+            });
+        });
+    </script>
+}

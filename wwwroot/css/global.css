@@ -125,10 +125,11 @@ p {
 
 .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.32);
+    padding-bottom: 10px;
 }
 
 .navbar-toggler:focus {
-    box-shadow: 0 0 0 0.16rem rgba(114, 239, 221, 0.35);
+    box-shadow: 0 0 0 0.16rem var(--color-gradient7);
 }
 
 .navbar-toggler-icon {
@@ -427,11 +428,13 @@ nav.navbar.navbar-scrolled {
 
     .navbar {
         font-size: 0.95rem;
+        background-color: transparent !important;
         -webkit-backdrop-filter: none !important;
         backdrop-filter: none !important;
     }
 
     nav.navbar.navbar-scrolled {
+        background-color: transparent !important;
         -webkit-backdrop-filter: none !important;
         backdrop-filter: none !important;
     }

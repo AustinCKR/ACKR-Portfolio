@@ -328,8 +328,8 @@
 @media (max-width: 767.98px) {
     .abt-me-div {
         width: calc(100% - 1.25rem);
-        margin-top: 70px;
-        font-size: 0.98rem;
+        margin-top: 10px;
+        font-size: 1rem;
     }
 
     .abt-me-h1 {
