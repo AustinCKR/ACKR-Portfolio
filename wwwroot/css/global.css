@@ -119,6 +119,18 @@ p {
     background-color: transparent;
 }
 
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.16rem rgba(114, 239, 221, 0.35);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 /* Navbar dropdown: frosted / blurred background (placed near navbar rules) */
 nav#mainNavbar .dropdown-menu {
     background-color: rgba(0, 0, 0, 0.38) !important; /* semi-transparent fallback */
@@ -130,6 +142,23 @@ nav#mainNavbar .dropdown-menu {
     /* keep layout & stacking correct */
     z-index: 1050 !important;
     background-clip: padding-box;
+}
+
+@media (min-width: 992px) {
+    #mainNavbarNav .nav-item.dropdown {
+        width: auto;
+    }
+
+    #mainNavbarNav .nav-item.dropdown > .dropdown-toggle {
+        width: auto;
+    }
+
+    #mainNavbarNav .nav-item.dropdown > .dropdown-menu {
+        --bs-dropdown-min-width: 10rem;
+        width: auto;
+        min-width: var(--bs-dropdown-min-width);
+        text-align: left;
+    }
 }
 
 /* initial transparent state */
@@ -272,15 +301,48 @@ nav.navbar.navbar-scrolled {
 }
 
 @media (max-width: 991.98px) {
+    .navbar .navbar-collapse {
+        margin-top: 0.5rem;
+        padding: 0.6rem 0.75rem;
+        background-color: rgba(0, 0, 0, 0.42);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0.7rem;
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+    }
+
     .navbar .navbar-nav {
-        flex-wrap: wrap;
+        width: 100%;
+        flex-wrap: nowrap;
         justify-content: center;
+        align-items: center;
         row-gap: 0.35rem;
     }
 
     .navbar .nav-link {
         font-size: 0.95rem;
         padding: 0.35rem 0.55rem;
+    }
+
+    #mainNavbarNav .nav-item.dropdown {
+        width: min(100%, 150px);
+        text-align: center;
+    }
+
+    #mainNavbarNav .nav-item.dropdown > .dropdown-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        width: 100%;
+    }
+
+    #mainNavbarNav .nav-item.dropdown > .dropdown-menu {
+        --bs-dropdown-min-width: 100%;
+        width: 100%;
+        min-width: var(--bs-dropdown-min-width);
+        margin-top: 0.25rem;
+        text-align: center;
     }
 
     .link-div {

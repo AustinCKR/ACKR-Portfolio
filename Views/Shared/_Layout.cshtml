@@ -20,9 +20,14 @@
 </head>
 <body>
     <header>
-        <nav id="mainNavbar" class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
-            <div class="container-fluid justify-content-center">
-                <ul class="navbar-nav flex-row gap-2">
+        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark sticky-top bg-body-tertiary">
+            <div class="container-fluid">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarNav" aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="mainNavbarNav">
+                    <ul class="navbar-nav flex-column flex-lg-row align-items-center gap-2">
                     <li class="nav-item">
                         <a class="nav-link text-white underline-animate" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
@@ -35,18 +40,19 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white underline-animate" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Playground
-                            <i class="fa-solid fa-caret-down underline-animate"></i>
+                            <i class="fa-solid fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item text-white underline-animate" asp-controller="Home" asp-action="Playground" asp-route-gameName="FrogParkour">Frog Parkour</a>
-                                </li>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white underline-animate" asp-area="" asp-controller="Home" asp-action="Credits">Credits</a>
                     </li>
-                </ul>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
