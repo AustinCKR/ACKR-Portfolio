@@ -106,6 +106,10 @@ p {
     z-index: 1030; /* keep above content */
 }
 
+.navbar .container-fluid {
+    position: relative;
+}
+
 .nav-item {
     border-radius: 5px;
     transition: ease 0.2s;
@@ -128,7 +132,49 @@ p {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: none;
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    transition: background-color 180ms ease, transform 220ms ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: transform 220ms ease, top 220ms ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -7px;
+}
+
+.navbar-toggler-icon::after {
+    top: 7px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    /* Hide only the center bar; keep ::before and ::after visible for the X */
+    height: 0;
+    background: none !important;
+    background-image: none !important;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
 }
 
 /* Navbar dropdown: frosted / blurred background (placed near navbar rules) */
@@ -301,14 +347,35 @@ nav.navbar.navbar-scrolled {
 }
 
 @media (max-width: 991.98px) {
+    .navbar .container-fluid {
+        min-height: 3.2rem;
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        top: 50%;
+        right: 0.5rem;
+        transform: translateY(-50%);
+        margin-left: 0 !important;
+        z-index: 1060;
+    }
+
     .navbar .navbar-collapse {
-        margin-top: 0.5rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 0;
         padding: 0.6rem 0.75rem;
         background-color: rgba(0, 0, 0, 0.42);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 0.7rem;
         -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
+        z-index: 1055;
     }
 
     .navbar .navbar-nav {
@@ -360,6 +427,23 @@ nav.navbar.navbar-scrolled {
 
     .navbar {
         font-size: 0.95rem;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    nav.navbar.navbar-scrolled {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    .navbar .navbar-collapse {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    nav#mainNavbar .dropdown-menu {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
     }
 
     .navbar .container-fluid {
