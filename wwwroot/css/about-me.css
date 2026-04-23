@@ -3,7 +3,7 @@
     margin: 80px auto 0;
     font-size: 1.25rem;
     font-weight: 500;
-    width: 1300px;
+    width: min(1300px, calc(100% - 2rem));
 }
 
 .abt-me-h1 {
@@ -256,4 +256,114 @@
 .contact-link:hover {
     color: var(--color-gradient6);
     text-decoration: none;
+}
+
+@media (max-width: 1199.98px) {
+    .edu-timeline-content {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .abt-me-div {
+        font-size: 1.05rem;
+    }
+
+    .abt-me-h1 {
+        font-size: 2.8rem;
+    }
+
+    .abt-me-div > .d-flex.mt-4 {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .profile-pic-div {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    .abt-me-profile-pic {
+        width: min(280px, 80vw);
+        height: auto;
+        aspect-ratio: 5 / 7;
+    }
+
+    .abt-me-skill-div .d-flex.gap-3 {
+        flex-wrap: wrap;
+        row-gap: 0.6rem;
+    }
+
+    .edu-timeline-horizontal-line {
+        display: none;
+    }
+
+    .edu-timeline {
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .edu-timeline-node {
+        max-width: none;
+        width: 100%;
+        height: auto;
+    }
+
+    .edu-timeline-content {
+        height: auto;
+        margin: 0;
+    }
+
+    .edu-timeline-circle {
+        margin-bottom: 1.2rem;
+    }
+
+    .edu-timeline-circle::after {
+        width: 260px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .abt-me-div {
+        width: calc(100% - 1.25rem);
+        margin-top: 70px;
+        font-size: 0.98rem;
+    }
+
+    .abt-me-h1 {
+        font-size: 2.2rem;
+    }
+
+    .abt-me-skill-div {
+        width: 100%;
+    }
+
+    .skill-img-wrapper {
+        width: 42px;
+        height: 42px;
+        padding: 7px;
+    }
+
+    .skill-straigt-line {
+        height: 42px;
+    }
+
+    .abt-me-contact-div {
+        margin-top: 70px;
+    }
+
+    .abt-me-contact-div h2 {
+        margin-bottom: 28px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-item i {
+        font-size: 30px;
+    }
 }

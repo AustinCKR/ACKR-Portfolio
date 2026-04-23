@@ -3,7 +3,7 @@
     margin: 80px auto 0;
     font-size: 1.25rem;
     font-weight: 500;
-    width: 1300px;
+    width: min(1300px, calc(100% - 2rem));
 }
 
 .projects-h1 {
@@ -94,4 +94,51 @@
 
 .project-button-youtube {
     background-color: rgb(255,0,0);
+}
+
+@media (max-width: 1199.98px) {
+    .projects-content-div {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .projects-div {
+        width: calc(100% - 1.25rem);
+        margin-top: 70px;
+        font-size: 1rem;
+    }
+
+    .projects-h1 {
+        font-size: 2.2rem;
+    }
+
+    .projects-content-div {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-card {
+        height: auto;
+    }
+
+    .project-title {
+        height: auto;
+        min-height: 0;
+    }
+
+    .project-detail {
+        min-height: 0;
+    }
+
+    .project-button,
+    .project-button-disabled {
+        margin-top: 10px;
+    }
+
+    .project-button > a,
+    .project-button > i,
+    .project-button-disabled > span {
+        font-size: 1rem;
+    }
 }

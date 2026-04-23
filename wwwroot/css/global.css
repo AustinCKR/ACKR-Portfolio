@@ -68,12 +68,14 @@ p {
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
-    background-clip: text -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
 }
 
 .gradient-text3 {
-    display: inline-block; /* ensure background-clip + filter work correctly */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-image: linear-gradient( 
         135deg, 
         var(--color-gradient6) 0%, 
@@ -81,7 +83,8 @@ p {
         var(--color-gradient10) 100% 
     );
     -webkit-background-clip: text;
-    background-clip: text -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
     text-decoration: none;
 }
@@ -266,4 +269,49 @@ nav.navbar.navbar-scrolled {
     transform-origin: left center;
     z-index: 1;
     opacity: 0;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.35rem;
+    }
+
+    .navbar .nav-link {
+        font-size: 0.95rem;
+        padding: 0.35rem 0.55rem;
+    }
+
+    .link-div {
+        gap: 2rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767.98px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .navbar {
+        font-size: 0.95rem;
+    }
+
+    .navbar .container-fluid {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .navbar .nav-link {
+        font-size: 0.88rem;
+        padding: 0.3rem 0.45rem;
+    }
+
+    .link-div {
+        gap: 1.25rem;
+        font-size: 1.15rem;
+    }
 }

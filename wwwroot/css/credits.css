@@ -3,7 +3,7 @@
     margin: 80px auto 0;
     font-size: 1.25rem;
     font-weight: 500;
-    width: 1300px;
+    width: min(1300px, calc(100% - 2rem));
 }
 
 .credits-h1 {
@@ -16,4 +16,28 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+}
+
+@media (max-width: 1199.98px) {
+    .credits-content-div {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .credits-div {
+        width: calc(100% - 1.25rem);
+        margin-top: 70px;
+        font-size: 1rem;
+    }
+
+    .credits-h1 {
+        font-size: 2.2rem;
+    }
+
+    .credits-content-div {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
 }
